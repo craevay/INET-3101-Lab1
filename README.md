@@ -3,55 +3,58 @@ Code for INET 3101 Lab
 
 Huy Tran
 
-This program will prompt the user with 7 options: 
- - Print all records
- - Add a record, delete the last record
- - Print number of records,
- - Print data basesize
- - Print number of changes
- - Exit the prompted menu. 
+This program provides a simple database management system that allows users to interact with records through a menu-driven interface. The user is presented with **seven options**:  
 
-Choosing the corresponding number will give the user either an 
-actionable or texts. The user will likely have to add records to the
-database before using any of the print or delete options. to add a 
-record the user will have to enter a record's number, name, size, size
-metric, and cost. Repeatedly doing this will fill up the database up to
-100 records in which will prevent the user from adding any more.
+1. **Print all records** – Displays all stored records, including their number, name, size, and cost.  
+2. **Add a record** – Allows the user to enter a new record with the following details:  
+   - Record number  
+   - Name  
+   - Size  
+   - Size metric  
+   - Cost  
+3. **Delete the last record** – Removes the most recently added record.  
+4. **Print number of records** – Displays the current number of records in the database.  
+5. **Print database size** – Outputs the total number of records stored.  
+6. **Print number of changes** – Shows how many actions (additions/deletions) have been performed.  
+7. **Exit** – Terminates the program.  
 
- - Print all records will print any record in the database and include it's 
-number, name, size, and cost.
- - Add records will as the the user to enter a record's number, name, size, 
-size metric, and cost. 
- - Delete last record will delete the most recently added record. 
- - Print database size will print the size of records by number of records in the database. 
- - print number of changes will print the amount of actions the user has completed. 
- - Finally exit will quit the running program.
+### Important Notes  
+- Users must **add records before using print or delete options**.  
+- The database has a **maximum capacity of 100 records**; no further records can be added once this limit is reached.  
 
-printAllRecords
- - None
- - Void
- - Iterates through database[] looping until i reaches record_count
+---
 
-addRecord
- - User input(int, string, float)
- - Void
- - Checks if record_count >= maxRecord, store user input in database[record_count]
-record_count & change_count + 1
+## Function Descriptions  
 
-deleteLastRecord
- - None
- - Void
- - Check record_count == 0, if false remove database[record_count], record_count -1
-change_count + 1
+### `printAllRecords()`  
+- **Parameters:** None  
+- **Return Type:** `void`  
+- **Functionality:**  
+  - Iterates through `database[]` and prints each record until `record_count` is reached.  
 
-printRecordCount
- - None
- - Void
- - Print record_count
+### `addRecord()`  
+- **Parameters:** User input (`int`, `string`, `float`)  
+- **Return Type:** `void`  
+- **Functionality:**  
+  - Checks if `record_count >= maxRecord`.  
+  - If within limits, stores user input in `database[record_count]`.  
+  - Increments `record_count` and `change_count`.  
 
-printDatabaseSize
- - None
- - Void
- - Print change_count
+### `deleteLastRecord()`  
+- **Parameters:** None  
+- **Return Type:** `void`  
+- **Functionality:**  
+  - Checks if `record_count == 0`.  
+  - If false, removes `database[record_count]`, decrements `record_count`, and increments `change_count`.  
 
-Lab.c
+### `printRecordCount()`  
+- **Parameters:** None  
+- **Return Type:** `void`  
+- **Functionality:**  
+  - Prints the total number of records in the database.  
+
+### `printDatabaseSize()`  
+- **Parameters:** None  
+- **Return Type:** `void`  
+- **Functionality:**  
+  - Prints `change_count`, indicating the number of user actions performed.
